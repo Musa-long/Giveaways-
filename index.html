@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NaijaLeakXXX 35,000 NGN Giveaway</title>
+
+<!-- WHATSAPP LOGO PREVIEW - IMPORTANT -->
+<meta property="og:title" content="🎉 35,000 NGN Giveaway - NaijaLeakXXX">
+<meta property="og:description" content="We are giving 35k to support our fans! Share to qualify.">
+<meta property="og:image" content="https://giveaway-jeyb.onrender.com/logo.jpg">
+<meta property="og:url" content="https://giveaway-jeyb.onrender.com/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+body{font-family:Arial;background:#f5f7ff;margin:0;padding:20px;text-align:center}
+.card{max-width:420px;margin:auto;background:white;padding:25px;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,0.1)}
+h1{color:#1a237e;font-size:32px}
+.progress{width:100%;height:22px;background:#eee;border-radius:20px;overflow:hidden;margin:15px 0}
+.fill{height:100%;width:0%;background:#25D366;transition:0.5s}
+.btn{width:100%;padding:15px;border:none;border-radius:10px;font-size:18px;font-weight:bold;cursor:pointer;margin-top:12px}
+#shareBtn{background:#25D366;color:white}
+#claimBtn{background:#ddd;color:#999}
+#claimBtn.active{background:#1a237e;color:white}
+#popup{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);display:none;justify-content:center;align-items:center;z-index:999}
+.popup-box{background:white;padding:30px;border-radius:20px;max-width:350px;width:90%}
+.small{font-size:13px;color:#666;margin-top:15px}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>🎉 35,000 NGN Giveaway</h1>
+<p>We are giving 35k to support our fans! Share to qualify for final selection.</p>
+<p><b>Progress: <span id="count">0</span>/20 Shares</b></p>
+<div class="progress"><div class="fill" id="fill"></div></div>
+<button class="btn" id="shareBtn" onclick="share()">Share on WhatsApp ( <span id="left">20</span> left )</button>
+<button class="btn" id="claimBtn" onclick="claim()">🔒 Claim Reward</button>
+<p class="small">This giveaway is organized by NaijaLeakXXX. Winners selected randomly. This is NOT a government program.</p>
+</div>
+<div id="popup"><div class="popup-box"><h2>🎉 Congratulations!</h2><p>You have completed 20 shares!</p><p><b>You are now qualified for the 35k giveaway.</b></p><button class="btn" style="background:#1a237e;color:white" onclick="goClaim()">Claim Your Reward Now</button></div></div>
+<script>
+let shares = parseInt(localStorage.getItem('shares20') || '0');
+update();
+function share(){
+  let text = encodeURIComponent("I just entered for the NaijaLeakXXX 35k Giveaway! Join now: " + window.location.href);
+  window.open("https://wa.me/?text="+text, "_blank");
+  shares++; if(shares>20) shares=20;
+  localStorage.setItem('shares20', shares);
+  setTimeout(()=>{update(); if(shares==20) document.getElementById('popup').style.display='flex';}, 800);
+}
+function update(){
+  document.getElementById('count').innerText = shares;
+  document.getElementById('left').innerText = 20 - shares;
+  document.getElementById('fill').style.width = (shares*5) + "%";
+  let claim = document.getElementById('claimBtn');
+  if(shares >= 20){claim.classList.add('active');claim.innerHTML = "✅ Claim Reward";document.getElementById('shareBtn').innerText = "Completed!";document.getElementById('shareBtn').style.background = "#999";}
+}
+function claim(){if(shares < 20){alert("⚠️ Please complete your 20 WhatsApp shares! You have shared " + shares + "/20");} else {window.location.href = "https://naijaleakxxx.onrender.com";}}
+function goClaim(){document.getElementById('popup').style.display='none';window.location.href = "https://naijaleakxxx.onrender.com";}
+</script>
+</body>
+</html>
